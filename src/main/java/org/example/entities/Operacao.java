@@ -3,50 +3,53 @@ package org.example.entities;
 import java.time.LocalDate;
 
 public class Operacao {
-    private double cdOperacao;
     private LocalDate dataInicio;
     private LocalDate dataFinal;
     private double quantidade;
-    private double idPreco;
+    private String codAcao;
+    private String subProduto;
 
 
     public Operacao() {
     }
 
-    public Operacao(double cdOperacao, LocalDate dataInicio, LocalDate dataFinal, double quantidade, double idPreco) {
-        this.cdOperacao = cdOperacao;
+    public Operacao(LocalDate dataInicio, LocalDate dataFinal, double quantidade, String codAcao, String subProduto) {
         this.dataInicio = dataInicio;
         this.dataFinal = dataFinal;
         this.quantidade = quantidade;
-        this.idPreco = idPreco;
+        this.codAcao = codAcao;
+        this.subProduto = subProduto;
     }
-
-    public double getCdOperacao() {
-        return cdOperacao;
-    }
-
 
     public LocalDate getDataInicio() {
         return dataInicio;
     }
 
-
     public LocalDate getDataFinal() {
         return dataFinal;
     }
-
 
     public double getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(double quantidade) {
-        this.quantidade = quantidade;
+    public String getCodAcao() {
+        return codAcao;
     }
 
-    public double getIdPreco() {
-        return idPreco;
+    public String getSubProduto() {
+        return subProduto;
     }
 
+    @Override
+    public String toString() {
+        return "Operacao{" +
+                "dataInicio=" + dataInicio +
+                ", dataFinal=" + dataFinal +
+                ", quantidade=" + quantidade +
+                ", codAcao='" + codAcao + '\'' +
+                ", subProduto='" + subProduto + '\'' +
+                '}';
+    }
 }
 
