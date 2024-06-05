@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a525cbd-eb82-4fe8-9855-97e4bb46b9fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Result.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MexendoComMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Pessoa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Reader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/DadosMercado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/DadosMercado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Operacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Operacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entities/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entities/Result.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +39,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.MexendoComMap.executor": "Run",
     "Application.Reader.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -48,7 +48,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jessi/IdeaProjects/desafio",
+    "last_opened_file_path": "C:/Users/jessi/IdeaProjects/trabalhando_com_arquivos",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -60,7 +60,20 @@
       <recent name="C:\Users\jessi\IdeaProjects\desafio\src\main\java\org\example\csv" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Reader">
+    <configuration name="MexendoComMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.MexendoComMap" />
+      <module name="desafio" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Reader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Reader" />
       <module name="desafio" />
@@ -77,6 +90,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Reader" />
+        <item itemvalue="Application.MexendoComMap" />
       </list>
     </recent_temporary>
   </component>

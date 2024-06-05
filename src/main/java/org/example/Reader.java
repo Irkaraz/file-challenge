@@ -4,15 +4,13 @@ import org.example.entities.DadosMercado;
 import org.example.entities.Operacao;
 import org.example.entities.Result;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Reader {
 
@@ -28,28 +26,42 @@ public class Reader {
                 "\\java\\org\\example\\csv\\DadosMercado.csv";
         List<DadosMercado> dadosMercadoList = getDadosMercado(pathDadosMercado);
 
-        //Percorre cada operação dentro da lista
-        for (Operacao operacao : operacaoList) {
-            double quantidadeAcoes = operacao.getQuantidade();
-            LocalDate dataInicio = operacao.getDataInicio();
-            LocalDate dataFinal = operacao.getDataFinal();
-            String subProduto = operacao.getSubProduto();
+        String resultPath = "C:\\Users\\jessi\\Documents\\out.csv";
+        List<Result> resultList = new ArrayList<>();
 
-            // Cálculo da quantidade de dias da operação
-            long diasOperacao = ChronoUnit.DAYS.between(dataInicio, dataFinal);
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(resultPath))) {
+            //Percorre cada operação dentro da lista
+            for (Operacao operacao : operacaoList) {
+                double quantidadeAcoes = operacao.getQuantidade();
+                LocalDate dataInicio = operacao.getDataInicio();
+                LocalDate dataFinal = operacao.getDataFinal();
+                String subProduto = operacao.getSubProduto();
+                String codAcao = operacao.getCodAcao();
 
-            // Busca do preço da ação no DadosMercado.csv
-            double precoAcao = 0;
+                // Cálculo da quantidade de dias da operação
+                int diasOperacaoCorrido = (int) ChronoUnit.DAYS.between(dataInicio, dataFinal);
 
-            for (DadosMercado dadosMercado : dadosMercadoList){
-                precoAcao = dadosMercado.buscarPrecoDaAcao(dadosMercadoList, dadosMercado.getCodAcao(), dadosMercado.getDiasCorridos());
+                try {
+                    double precoDaAcao = DadosMercado.buscarPrecoDaAcao(dadosMercadoList, codAcao, diasOperacaoCorrido);
+                    double valorFinalDaOperacao = quantidadeAcoes * precoDaAcao;
+
+                    Result result = new Result(subProduto, valorFinalDaOperacao);
+                    resultList.add(result);
+
+                } catch (Exception ignored) {
+                }
+
             }
 
-            double valorFinalDaOperacao = quantidadeAcoes * precoAcao;
-
-            Result result = new Result(subProduto, valorFinalDaOperacao);
+            List<String> agrupados = Result.getAgrupado(resultList);
+            bw.write("NM_SUBPRODUTO;VL_TOTAL" + "\n");
+            for (String agrupado : agrupados) {
+                bw.write(agrupado);
+                bw.newLine();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-
     }
 
     //Reader do csv de operacoes
@@ -66,18 +78,9 @@ public class Reader {
             while (line != null) {
                 String[] data = line.split(";");
 
-                String cdOperacaoStr = data[0];
                 String dataInicioStr = data[1];
                 String dataFinalStr = data[2];
-                String nomeEmpresa = data[3];
-                String nomeMesa = data[4];
-                String nomeEstrategia = data[5];
-                String nomeCentralizador = data[6];
-                String nomeGestor = data[7];
-                String nomeSubGestor = data[8];
                 String nomeSubProduto = data[9];
-                String nomeCaracteristica = data[10];
-                String cdAtivos = data[11];
                 String quantidadeStr = data[12];
                 String codAcao = data[13];
 

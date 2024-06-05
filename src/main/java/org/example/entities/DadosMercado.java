@@ -17,12 +17,13 @@ public class DadosMercado {
         this.vlPreco = vlPreco;
     }
 
-    public double buscarPrecoDaAcao(List<DadosMercado> dadosMercadoList, String codAcao, int diasCorridos){
+    public static double buscarPrecoDaAcao(List<DadosMercado> dadosMercadoList, String codAcao, int diasCorridos){
         for (DadosMercado dadoMercado : dadosMercadoList){
             if (dadoMercado.getCodAcao().equals(codAcao) && dadoMercado.getDiasCorridos() == diasCorridos){
                 return dadoMercado.getVlPreco();
             }
         }
+
         throw new IllegalArgumentException("Preço não encontrado para ação: " + codAcao + " e dias: " + diasCorridos);
     }
 
